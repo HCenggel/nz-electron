@@ -12,3 +12,11 @@ npm run electron:serve
 # 打包
 npm run electron:build
 ```
+
+
+
+### 感谢
+[Angular](https://github.com/angular/angular)
+[NG-ZORRO](https://github.com/NG-ZORRO/ng-zorro-antd)
+[Electron](https://github.com/electron/electron)
+[angular-electron](https://github.com/maximegris/angular-electron) - 本项目借鉴于此项目
