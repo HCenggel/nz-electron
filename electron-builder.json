@@ -1,0 +1,53 @@
+{
+    "asar": true,
+    "directories": {
+        "output": "dist/app/"
+    },
+    "files": [
+        "**/*",
+        "!**/*.ts",
+        "!*.map",
+        "!package.json",
+        "!package-lock.json",
+        {
+            "from": "../dist/browser",
+            "filter": [
+                "**/*"
+            ]
+        }
+    ],
+    "win": {
+        "icon": "dist/browser/icons",
+        "target": [
+            "portable",
+            "nsis"
+        ]
+    },
+    "portable": {
+        "splashImage": "dist/browser/icons/electron.bmp"
+    },
+    "mac": {
+        "icon": "dist/browser/icons",
+        "target": [
+            "dmg"
+        ]
+    },
+    "nsis": {
+        "oneClick": false,
+        "allowElevation": true,
+        "allowToChangeInstallationDirectory": true,
+        "installerIcon": "dist/browser/icons/favicon.ico",
+        "uninstallerIcon": "dist/browser/icons/favicon.ico",
+        "installerHeaderIcon": "dist/browser/icons/favicon.ico",
+        "createDesktopShortcut": true,
+        "createStartMenuShortcut": true,
+        "perMachine": true,
+        "unicode": true
+    },
+    "linux": {
+        "icon": "dist/browser/icons",
+        "target": [
+            "AppImage"
+        ]
+    }
+}

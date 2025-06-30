@@ -1,0 +1,38 @@
+{
+    "asar": true,
+    "directories": {
+        "output": "dist/app/"
+    },
+    "files": [
+        "**/*",
+        "!**/*.ts",
+        "!*.map",
+        "!package.json",
+        "!package-lock.json",
+        {
+            "from": "../dist/browser",
+            "filter": ["**/*"]
+        }
+    ],
+    "win": {
+        "icon": "dist/browser/icons",
+        "target": [
+            "portable"
+        ]
+    },
+    "portable": {
+        "splashImage": "dist/browser/icons/electron.bmp"
+    },
+    "mac": {
+        "icon": "dist/browser/icons",
+        "target": [
+            "dmg"
+        ]
+    },
+    "linux": {
+        "icon": "dist/browser/icons",
+        "target": [
+            "AppImage"
+        ]
+    }
+}

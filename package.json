@@ -1,0 +1,52 @@
+{
+    "name": "nz-electron",
+    "version": "0.0.0",
+    "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build",
+        "watch": "ng build --watch --configuration development",
+        "test": "ng test",
+        "electron:serve-tsc": "tsc -p tsconfig.serve.json",
+        "electron:serve": "npm run electron:serve-tsc --watch && electron . --serve",
+        "electron:build": "ng build && npm run electron:serve-tsc && electron-builder build --publish=never"
+    },
+    "main": "dist/electron/main.js",
+    "prettier": {
+        "overrides": [
+            {
+                "files": "*.html",
+                "options": {
+                    "parser": "angular"
+                }
+            }
+        ]
+    },
+    "private": true,
+    "dependencies": {
+        "@angular/common": "^20.0.0",
+        "@angular/compiler": "^20.0.0",
+        "@angular/core": "^20.0.0",
+        "@angular/forms": "^20.0.0",
+        "@angular/platform-browser": "^20.0.0",
+        "@angular/router": "^20.0.0",
+        "ng-zorro-antd": "^20.0.0-next.1",
+        "rxjs": "~7.8.0",
+        "tslib": "^2.3.0"
+    },
+    "devDependencies": {
+        "@angular/build": "^20.0.4",
+        "@angular/cli": "^20.0.4",
+        "@angular/compiler-cli": "^20.0.0",
+        "@types/jasmine": "~5.1.0",
+        "electron": "^37.1.0",
+        "electron-builder": "^26.0.12",
+        "jasmine-core": "~5.7.0",
+        "karma": "~6.4.0",
+        "karma-chrome-launcher": "~3.2.0",
+        "karma-coverage": "~2.2.0",
+        "karma-jasmine": "~5.1.0",
+        "karma-jasmine-html-reporter": "~2.1.0",
+        "typescript": "~5.8.2"
+    }
+}
