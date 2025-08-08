@@ -33,6 +33,7 @@
                             }
                         ],
                         "styles": [
+                            "src/theme.less",
                             "src/styles.scss",
                             "node_modules/ng-zorro-antd/ng-zorro-antd.dark.css"
                         ]
