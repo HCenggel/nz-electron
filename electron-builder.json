@@ -19,9 +19,25 @@
     "win": {
         "icon": "dist/browser/icons",
         "target": [
-            "portable",
-            "nsis"
+            {
+                "target": "portable",
+                "arch": [
+                    "x64"
+                ]
+            },
+            {
+                "target": "nsis",
+                "arch": [
+                    "x64"
+                ]
+            }
         ]
+    },
+    "extraMetadata": {
+        "buildTarget": {
+            "portable": "portable",
+            "nsis": "nsis"
+        }
     },
     "portable": {
         "splashImage": "dist/browser/icons/electron.bmp"

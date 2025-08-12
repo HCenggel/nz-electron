@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as fs from 'fs';
 
 let win: BrowserWindow | null = null;
+let winLoading: BrowserWindow | null = null;
 const args = process.argv.slice(1);
 // 开发的时候为tree
 const serve = args.some(val => val === '--serve');
@@ -13,12 +14,11 @@ function createWindow(): BrowserWindow {
 
     // 创建浏览器窗口。
     win = new BrowserWindow({
-        x: 500,
-        y: 800,
-        // width: size.width,
-        // height: size.height,
-        width: 300,
-        height: 300,
+        x: Math.round((size.width - size.width/2) / 2),
+        y: Math.round((size.height - size.height/2) / 2),
+        width: size.width/2,
+        height: size.height/2,
+        show: false, // 在加载完成前不要显示主窗口
         webPreferences: {
             nodeIntegration: true,
             allowRunningInsecureContent: serve,
@@ -27,7 +27,12 @@ function createWindow(): BrowserWindow {
         },
     });
 
-    console.log(serve)
+    // 在主窗口加载完成后，关闭加载窗口并显示主窗口
+    win.once('ready-to-show', () => {
+        winLoading?.close();
+        win?.show();
+    });
+
     if (serve) {
         // 如果需要安装 electron-debug
         // import('electron-debug').then(debug => {
@@ -59,6 +64,7 @@ function createWindow(): BrowserWindow {
         win = null;
     });
 
+    // 关闭加载窗口
     return win;
 }
 
@@ -66,7 +72,10 @@ try {
     // 当 Electron 完成初始化并准备好创建浏览器窗口时，将调用此方法。
     // 某些 API 必须在此事件发生后才能使用。
     // 增加了 400 毫秒的延迟，以修复使用透明窗口时黑色背景的问题。更多详情请访问 https://github.com/electron/electron/issues/15947
-    app.on('ready', () => setTimeout(createWindow, 400));
+    app.on('ready', () => {
+        winLoading = createLoadingWindow();
+        setTimeout(createWindow, 1000);
+    });
 
     // 当所有窗口都关闭时退出。
     app.on('window-all-closed', () => {
@@ -85,4 +94,22 @@ try {
 
 } catch (e) {
     // 捕获错误抛出 e;
+}
+
+// 加载器
+function createLoadingWindow(): BrowserWindow {
+    winLoading = new BrowserWindow({
+        width: 350,
+        height: 350,
+        frame: false,
+        transparent: true,
+        alwaysOnTop: true,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false
+        }
+    });
+    const loadingPath = path.join(__dirname, '../browser/loading.html');
+    winLoading.loadFile(loadingPath);
+    return winLoading;
 }

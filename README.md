@@ -19,4 +19,5 @@ npm run electron:build
  - [Angular](https://github.com/angular/angular)
  - [NG-ZORRO](https://github.com/NG-ZORRO/ng-zorro-antd)
  - [Electron](https://github.com/electron/electron)
- - [angular-electron](https://github.com/maximegris/angular-electron) - 本项目借鉴于此项目
+ - [tailwindcss](https://tailwindcss.com/)
+ - [angular-electron](https://github.com/maximegris/angular-electron) - 本项目大部分灵感(code)来自此项目
