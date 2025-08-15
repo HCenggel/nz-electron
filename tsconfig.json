@@ -22,9 +22,7 @@
         "typeCheckHostBindings": true,
         "strictTemplates": true
     },
-    "files": [
-        "./electron/main.ts"
-    ],
+    "files": [],
     "references": [
         {
             "path": "./tsconfig.app.json"

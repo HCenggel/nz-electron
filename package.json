@@ -5,10 +5,11 @@
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
+        "web": "ng serve",
+        "electron": "npm run electron:serve-tsc --watch && electron . --serve",
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "electron:serve-tsc": "tsc -p tsconfig.serve.json",
-        "electron:serve": "npm run electron:serve-tsc --watch && electron . --serve",
         "electron:build": "ng build && npm run electron:serve-tsc && electron-builder build --publish=never"
     },
     "main": "dist/electron/main.js",

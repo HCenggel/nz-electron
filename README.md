@@ -5,9 +5,9 @@
 # 安装依赖
 yarn / npm install
 
-# 启动
+# 启动（Angular和Electron分别启动）
 ng serve
-npm run electron:serve
+npm run electron
 
 # 打包
 npm run electron:build
