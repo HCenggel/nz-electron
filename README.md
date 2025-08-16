@@ -79,36 +79,26 @@ ElectronAngular/
 ## 🔧 核心功能
 
 ### IPC 通信系统
-项目实现了完整的 IPC（进程间通信）系统，支持：
+需要在electron/ipcManager.ts中写，具体请看案例代码！
 
+### 使用IPC通信
 ```typescript
-// 窗口控制
-ipcRenderer.invoke('minimizeWindow')    // 最小化窗口
-ipcRenderer.invoke('toggleMaximize')    // 最大化/恢复窗口
-ipcRenderer.invoke('closeWindow')       // 关闭窗口
-
-// 系统信息
-ipcRenderer.invoke('getAppVersion')     // 获取应用版本
-ipcRenderer.invoke('getPlatform')       // 获取平台信息
-
-// 功能测试
-ipcRenderer.invoke('getRandomNumbers')  // 生成随机数
-```
-
-### 常用组件示例
-```typescript
-import { NzButtonModule } from 'ng-zorro-antd/button';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-
 @Component({
-  imports: [NzButtonModule, NzIconModule],
-  template: `
-    <button nz-button nzType="primary">
-      <span nz-icon nzType="plus"></span>
-      添加项目
-    </button>
-  `
+    selector: 'app-index',
+    imports: [NzIconModule, NzButtonModule],
+    template:`
+        <button nz-button nzType="primary" (click)="testFun1()">Click Me!</button>
+    `
 })
+export default class Index {
+    public readonly electronService: ElectronService = inject(ElectronService);
+
+    async testFun1() {
+        const data1 = await this.electronService.ipcRenderer.invoke('getRandomNumbers');
+        console.log(data1);
+    }
+}
+
 ```
 
 ## 📄 许可证
