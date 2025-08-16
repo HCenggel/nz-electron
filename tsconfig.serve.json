@@ -20,7 +20,7 @@
     },
     "files": [
         "electron/main.ts",
-        "electron/ipc.ts"
+        "electron/ipcManager.ts"
     ],
     "exclude": [
         "node_modules",

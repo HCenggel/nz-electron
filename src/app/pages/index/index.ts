@@ -13,7 +13,7 @@ export default class Index {
     public readonly electronService: ElectronService = inject(ElectronService);
 
     async testFun1() {
-        const num = await this.electronService.ipcRenderer.invoke('getRandomNumbers');
-        console.log(num);
+        const data1 = await this.electronService.ipcRenderer.invoke('getRandomNumbers');
+        console.log(data1);
     }
 }

@@ -1,23 +1,130 @@
-# Electron Angular NG-ZORRO
+# NZ_Electron
 
-### 启动
+一个基于 Electron + Angular + NG-ZORRO + Tailwindcss 的现代化桌面应用开发模板，集成了完整的开发工具链和最佳实践。
+
+## 🚀 项目特性
+
+### 核心技术栈
+- **Electron v37** - 跨平台桌面应用框架
+- **Angular v20** - 现代化的前端框架
+- **NG-ZORRO v20** - 企业级 UI 组件库
+- **Tailwind CSS v4** - 实用优先的 CSS 框架
+
+## 📦 安装和运行
+
+### 环境要求
+
+- Node.js >= 22.16.0
+
+### 快速开始
+
 ```shell
-# 安装依赖
-yarn / npm install
+# 1. 克隆项目
+git clone https://github.com/HCenggel/nz-electron.git
+cd nz-electron
 
-# 启动（Angular和Electron分别启动）
-ng serve
-npm run electron
-
-# 打包
-npm run electron:build
+# 2. 安装依赖
+npm i / yarn
 ```
 
+### 开发模式
 
+```shell
+## 启动Angular
+ng serve
+## 启动Electron
+npm run electron
+```
 
-### 感谢
- - [Angular](https://github.com/angular/angular)
- - [NG-ZORRO](https://github.com/NG-ZORRO/ng-zorro-antd)
- - [Electron](https://github.com/electron/electron)
- - [tailwindcss](https://tailwindcss.com/)
- - [angular-electron](https://github.com/maximegris/angular-electron) - 本项目大部分灵感(code)来自此项目
+### 生产构建
+
+```shell
+npm run electron:build
+# 构建特定平台
+## Windows
+npm run electron:build:win
+## macOS
+npm run electron:build:mac
+## Linux
+npm run electron:build:linux
+```
+
+## 🏗️ 项目结构
+
+```
+ElectronAngular/
+├── dist/                	 # 打包目录
+│   ├── app              	 # Electron打包产物
+│   ├── browser              # Angular打包产物
+│   └── electron             # Electron 相关编译产物
+├── electron/                # Electron 主进程代码
+│   ├── main.ts              # 主进程入口文件
+│   ├── ipcManager.ts        # IPC 通信管理器
+│   └── package.json         # Electron 依赖配置
+├── src/                     # Angular 应用源码
+│   ├── app/                 # 应用主模块
+│   │   ├── pages/           # 页面组件
+│   │   ├── services/        # 服务层
+│   │   └── app.config.ts    # 应用配置
+│   ├── main.ts              # Angular 入口文件
+│   └── styles.scss          # 全局样式
+├── public/                  # 静态资源
+│   ├── icons/               # 应用图标
+│   └── loading.html         # 加载页面
+├── angular.json             # Angular 配置
+├── electron-builder.json    # Electron 打包配置
+└── package.json             # 项目依赖配置
+```
+
+## 🔧 核心功能
+
+### IPC 通信系统
+项目实现了完整的 IPC（进程间通信）系统，支持：
+
+```typescript
+// 窗口控制
+ipcRenderer.invoke('minimizeWindow')    // 最小化窗口
+ipcRenderer.invoke('toggleMaximize')    // 最大化/恢复窗口
+ipcRenderer.invoke('closeWindow')       // 关闭窗口
+
+// 系统信息
+ipcRenderer.invoke('getAppVersion')     // 获取应用版本
+ipcRenderer.invoke('getPlatform')       // 获取平台信息
+
+// 功能测试
+ipcRenderer.invoke('getRandomNumbers')  // 生成随机数
+```
+
+### 常用组件示例
+```typescript
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+
+@Component({
+  imports: [NzButtonModule, NzIconModule],
+  template: `
+    <button nz-button nzType="primary">
+      <span nz-icon nzType="plus"></span>
+      添加项目
+    </button>
+  `
+})
+```
+
+## 📄 许可证
+
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+
+## 🙏 致谢
+
+感谢以下开源项目的支持：
+
+- [Angular](https://github.com/angular/angular) - 现代化的前端框架
+- [NG-ZORRO](https://github.com/NG-ZORRO/ng-zorro-antd) - 企业级 UI 组件库
+- [Electron](https://github.com/electron/electron) - 跨平台桌面应用框架
+- [Tailwind CSS](https://tailwindcss.com/) - 实用优先的 CSS 框架
+- [angular-electron](https://github.com/maximegris/angular-electron) - 本项目大部分灵感(code)来自此项目
+
+---
+
+⭐ 如果这个项目对你有帮助，请给它一个星标！
