@@ -11,9 +11,9 @@ import {NzButtonModule} from 'ng-zorro-antd/button';
 })
 export default class Index {
     public readonly electronService: ElectronService = inject(ElectronService);
+    public num: number = 0;
 
     async testFun1() {
-        const data1 = await this.electronService.ipcRenderer.invoke('getRandomNumbers');
-        console.log(data1);
+        this.num = await this.electronService.ipcRenderer.invoke('getRandomNumbers');
     }
 }

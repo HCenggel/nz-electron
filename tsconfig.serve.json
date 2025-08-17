@@ -18,9 +18,8 @@
         ],
         "outDir": "./dist/electron"
     },
-    "files": [
-        "electron/main.ts",
-        "electron/ipcManager.ts"
+    "include": [
+        "electron/**/*.ts"
     ],
     "exclude": [
         "node_modules",
