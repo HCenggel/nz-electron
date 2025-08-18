@@ -94,10 +94,6 @@ export default class Index {
 
 ```
 
-## 📄 许可证
-
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
-
 ## 🙏 致谢
 
 感谢以下开源项目的支持：
@@ -111,4 +107,5 @@ export default class Index {
 ---
 
 ⭐ 如果这个项目对你有帮助，请给它一个星标！
+
 
