@@ -40,13 +40,6 @@ npm run electron
 
 ```shell
 npm run electron:build
-# 构建特定平台
-## Windows
-npm run electron:build:win
-## macOS
-npm run electron:build:mac
-## Linux
-npm run electron:build:linux
 ```
 
 ## 🏗️ 项目结构
@@ -118,3 +111,4 @@ export default class Index {
 ---
 
 ⭐ 如果这个项目对你有帮助，请给它一个星标！
+
