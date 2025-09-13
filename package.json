@@ -1,6 +1,9 @@
 {
     "name": "nz-electron",
     "version": "0.0.0",
+    "productName": "nz-electron",
+    "appId": "my_app_test_id",
+    "description": "",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
@@ -24,6 +27,7 @@
         ]
     },
     "private": true,
+    "keywords": [""],
     "dependencies": {
         "@angular/common": "^20.0.0",
         "@angular/compiler": "^20.0.0",
