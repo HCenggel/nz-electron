@@ -2,10 +2,11 @@ import {Component, inject} from '@angular/core';
 import {NzIconModule} from 'ng-zorro-antd/icon';
 import {ElectronService} from '../../services/electron-service';
 import {NzButtonModule} from 'ng-zorro-antd/button';
+import {RouterLink} from '@angular/router';
 
 @Component({
     selector: 'app-index',
-    imports: [NzIconModule, NzButtonModule],
+    imports: [NzIconModule, NzButtonModule, RouterLink],
     templateUrl: './index.html',
     styleUrl: './index.scss'
 })

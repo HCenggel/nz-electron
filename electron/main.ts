@@ -2,6 +2,8 @@ import {app, BrowserWindow, screen} from 'electron';
 import {ipcManager} from './ipcManager';
 import * as path from 'path';
 import * as fs from 'fs';
+import {AppDataSource} from './database/config';
+import {tasksService} from './database/icp/tasks';
 
 // 全局窗口引用 - 主窗口
 let win: BrowserWindow | null = null;
@@ -13,6 +15,15 @@ const args = process.argv.slice(1);
 const serve = args.some(val => val === '--serve');
 // 是否为 macOS 系统
 const isMac = process.platform === 'darwin';
+
+// 初始化数据库
+AppDataSource.initialize()
+    .then(() => {
+        console.log("Database initialized");
+    })
+    .catch((err: any) => {
+        console.log("DB init error:", err)
+    });
 
 function createWindow(): BrowserWindow {
 
@@ -34,6 +45,7 @@ function createWindow(): BrowserWindow {
 
     // IPC
     ipcManager.setMainWindow(win);
+    tasksService.setMainWindow(win);
 
     if (serve) {
         // import('electron-debug').then(debug => {

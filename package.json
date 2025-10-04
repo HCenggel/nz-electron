@@ -27,7 +27,15 @@
         ]
     },
     "private": true,
-    "keywords": [""],
+    "keywords": [
+        "Electron Angular",
+        "Angular Electron",
+        "Angular+Electron",
+        "Electron+Angular",
+        "Electron SQLite",
+        "SQLite TypeORM",
+        ""
+    ],
     "dependencies": {
         "@angular/common": "^20.0.0",
         "@angular/compiler": "^20.0.0",
@@ -37,15 +45,15 @@
         "@angular/router": "^20.0.0",
         "ng-zorro-antd": "^20.1.1",
         "rxjs": "~7.8.0",
-        "tslib": "^2.3.0"
+        "sqlite3": "^5.1.7",
+        "tslib": "^2.3.0",
+        "typeorm": "^0.3.27"
     },
     "devDependencies": {
-        "@tailwindcss/postcss": "^4.1.11",
-        "postcss": "^8.5.6",
-        "tailwindcss": "^4.1.11",
         "@angular/build": "^20.0.4",
         "@angular/cli": "^20.0.4",
         "@angular/compiler-cli": "^20.0.0",
+        "@tailwindcss/postcss": "^4.1.11",
         "@types/jasmine": "~5.1.0",
         "electron": "^37.1.0",
         "electron-builder": "^26.0.12",
@@ -55,7 +63,9 @@
         "karma-coverage": "~2.2.0",
         "karma-jasmine": "~5.1.0",
         "karma-jasmine-html-reporter": "~2.1.0",
-        "typescript": "~5.8.2",
-        "less": "^4.4.0"
+        "less": "^4.4.0",
+        "postcss": "^8.5.6",
+        "tailwindcss": "^4.1.11",
+        "typescript": "~5.8.2"
     }
 }

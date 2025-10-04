@@ -8,6 +8,7 @@ import zh from '@angular/common/locales/zh';
 import {FormsModule} from '@angular/forms';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideHttpClient} from '@angular/common/http';
+import {NzModalService} from 'ng-zorro-antd/modal';
 
 registerLocaleData(zh);
 
@@ -21,5 +22,6 @@ export const appConfig: ApplicationConfig = {
         provideAnimationsAsync(),
         provideHttpClient(),
         {provide: LocationStrategy, useClass: HashLocationStrategy},
+        NzModalService
     ]
 };
