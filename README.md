@@ -6,8 +6,8 @@
 
 - [x] 引入 TypeORM（经过验证TypeORM是目前开箱即用级别）【完成】
   - [x] SQLite 【内置】【完成】
-  - [x] PostgreSQL【文档形式】
-  - [x] MySQL【文档形式】
+  - [x] PostgreSQL【完成】
+  - [x] MySQL【完成】
 - [ ] 处理安全问题【正在进行中】
 - [ ] 使用文档【正在进行中】
 - [ ] 多语言配置【内置】【未开始】
@@ -123,4 +123,5 @@ export default class Index {
 ---
 
 ⭐ 如果这个项目对你有帮助，请给它一个星标！
+
 
