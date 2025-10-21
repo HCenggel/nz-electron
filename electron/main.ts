@@ -67,6 +67,29 @@ function createWindow(): BrowserWindow {
             pathIndex = '../browser/index.html';
         }
 
+        // 禁止 DevTools 打开（包括快捷键、右键菜单、代码调用等）
+        win.webContents.on('before-input-event', (event: any, input: any) => {
+            // 拦截 F12、Ctrl+Shift+I、Cmd+Option+I 等常见 DevTools 快捷键
+            if (input.type === 'keyDown') {
+                const {control, shift, alt, meta, key} = input;
+
+                // Windows/Linux: Ctrl+Shift+I 或 F12
+                // macOS: Cmd+Option+I 或 F12
+                if (
+                    (key === 'F12') ||
+                    (control && shift && key === 'I') ||
+                    (meta && alt && key === 'I')
+                ) {
+                    event.preventDefault(); // 阻止默认行为（打开 DevTools）
+                }
+            }
+        });
+
+        // 额外：监听 DevTools 打开事件，强制关闭（双重保险）
+        win.webContents.on('devtools-opened', () => {
+            win.webContents.closeDevTools();
+        });
+
         const fullPath = path.join(__dirname, pathIndex);
         const url = `file://${path.resolve(fullPath).replace(/\\/g, '/')}`;
         win.loadURL(url).then(() => {
