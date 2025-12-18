@@ -87,7 +87,7 @@ function createWindow(): BrowserWindow {
 
         // 额外：监听 DevTools 打开事件，强制关闭（双重保险）
         win.webContents.on('devtools-opened', () => {
-            win.webContents.closeDevTools();
+            win?.webContents.closeDevTools();
         });
 
         const fullPath = path.join(__dirname, pathIndex);
