@@ -1,4 +1,4 @@
-# NZ_Electron（Pre-alpha）
+# NZ_Electron（Alpha版本）
 
 一个基于 Electron + Angular + NG-ZORRO + Tailwindcss 的现代化桌面应用开发模板，集成了完整的开发工具链和最佳实践。
 
@@ -126,4 +126,5 @@ export default class Index {
 ---
 
 ⭐ 如果这个项目对你有帮助，请给它一个星标！
+
 
