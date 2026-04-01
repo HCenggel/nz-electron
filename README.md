@@ -4,10 +4,7 @@
 
 ## 计划
 
-- [x] 引入 TypeORM（经过验证TypeORM是目前开箱即用级别）【完成】
-  - [x] SQLite 【内置】【完成】
-  - [x] PostgreSQL【完成】
-  - [x] MySQL【完成】
+- [x] 引入 TypeORM（经过验证TypeORM是目前开箱即用级别）SQLite【完成】
 - [x] 处理安全问题【完成】
 - [ ] 使用文档【正在进行中】
 - [ ] 多语言配置【内置】【未开始】
